@@ -1,1 +1,1 @@
-# video-recorder-app
+# screen-recorder-app
