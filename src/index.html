@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <title>
+      Electron Screen Recorder
+    </title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="render.js"></script>
+  </head>
+  <body class="flex flex-col items-center m-auto h-full w-full bg-gradient-to-br from-teal-700 to-teal-900">
+    <h1 class="text-white text-2xl font-semibold mb-4">⚡ Electron Screen Recorder</h1>
+    <div class="flex flex-col justify-center items-center gap-4 h-full w-full">
+      
+      <button id="videoSelectBtn" class="bg-gray-300/30 hover:bg-gray-300/40 text-white py-1 px-4 rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg">
+        Choose a Video Source
+      </button>
+
+      <div id="videoContainer" class="bg-gray-300/30 hover:bg-gray-300/40 rounded-lg flex flex-col justify-center items-center h-full w-full cursor-pointer shadow-lg">
+        <video class="h-full w-full rounded-lg"></video>
+        
+        <div id="noVideo" class="flex flex-col gap-2 items-center max-w-[40%]">
+          <img src="./icons/screen-share-off.svg" class="h-12 w-12">
+          <p class="text-center text-lg text-white">
+            Select a window or screen to start recording
+          </p>
+        </div>
+      </div>
+  
+      <div class="flex flex-row gap-4">
+  
+        <button id="startBtn" class="bg-green-600 hover:bg-green-700 text-white py-1 px-4 rounded-lg shadow-lg disabled:bg-gray-400 disabled:cursor-not-allowed
+        ">Start</button>
+        <button id="stopBtn" class="
+        bg-red-500 hover:bg-red-600 text-white py-1 px-4 rounded-lg disabled:bg-gray-400 disabled:cursor-not-allowed shadow-lg
+        ">Stop</button>
+
+      </div>
+
+    </div>
+  </body>
+</html>
