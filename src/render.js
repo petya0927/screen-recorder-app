@@ -107,7 +107,7 @@ async function handleStop(e) {
   // save the file using dialog
   const { filePath } = await dialog.showSaveDialog({
     buttonLabel: "Save video",
-    defaultPath: `screen-recorder-${Date.now()}.mp4`,
+    defaultPath: `screen-recorder-${Date.now()}.webm`,
   });
 
   if (filePath) {
@@ -119,6 +119,6 @@ async function handleStop(e) {
     // create buffer from blob
     const buffer = Buffer.from(await blob.arrayBuffer());
 
-    writeFile(filePath, buffer);
+    writeFile(filePath, buffer, () => console.log("video saved successfully!"));
   }
 }

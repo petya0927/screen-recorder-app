@@ -1,7 +1,11 @@
 const { app, BrowserWindow, ipcMain, desktopCapturer } = require("electron");
 const path = require("path");
 
+// Enable remote module
 require("@electron/remote/main").initialize();
+
+// Load environment variables
+require("dotenv").config();
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require("electron-squirrel-startup")) {
@@ -26,7 +30,7 @@ const createWindow = () => {
   mainWindow.loadFile(path.join(__dirname, "index.html"));
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   // Enable remote module
   require("@electron/remote/main").enable(mainWindow.webContents);
@@ -61,3 +65,7 @@ app.on("activate", () => {
 ipcMain.handle("DESKTOP_CAPTURER_GET_SOURCES", (event, opts) =>
   desktopCapturer.getSources(opts)
 );
+
+ipcMain.on("invokeEnv", (event) => {
+  event.sender.send("envReply", config);
+});
