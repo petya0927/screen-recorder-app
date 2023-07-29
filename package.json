@@ -5,7 +5,7 @@
   "description": "My Electron application description",
   "main": "src/index.js",
   "scripts": {
-    "start": "electron-forge start",
+    "start": "npx electronmon .",
     "package": "electron-forge package",
     "make": "electron-forge make",
     "publish": "electron-forge publish",
@@ -19,8 +19,7 @@
   "license": "MIT",
   "dependencies": {
     "@electron/remote": "^2.0.10",
-    "electron-squirrel-startup": "^1.0.0",
-    "update-electron-app": "^2.0.1"
+    "electron-squirrel-startup": "^1.0.0"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.2.1",

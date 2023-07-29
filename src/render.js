@@ -99,26 +99,26 @@ async function selectSource(source) {
 
 // Captures all recorded chunks
 function handleDataAvailable(e) {
-  console.log("video data available");
   recordedChunks.push(e.data);
 }
 
 // Saves the video file on stop
 async function handleStop(e) {
-  const blob = new Blob(recordedChunks, {
-    type: recordedChunks[0].type,
-  });
-
-  // create buffer from blob, then convert it to mp4 file using webm-to-mp4
-  const buffer = Buffer.from(await blob.arrayBuffer());
-
   // save the file using dialog
   const { filePath } = await dialog.showSaveDialog({
     buttonLabel: "Save video",
     defaultPath: `screen-recorder-${Date.now()}.mp4`,
   });
 
-  console.log(filePath);
+  if (filePath) {
+    // convert recorded chunks to blob
+    const blob = new Blob(recordedChunks, {
+      type: recordedChunks[0].type,
+    });
 
-  writeFile(filePath, mp4, () => console.log("video saved successfully!"));
+    // create buffer from blob
+    const buffer = Buffer.from(await blob.arrayBuffer());
+
+    writeFile(filePath, buffer);
+  }
 }
