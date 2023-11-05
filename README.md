@@ -12,7 +12,7 @@ After downloading and running the executable, it will autorun, so relax and enjo
 ## Stack
 
 - Electron (and electron-forge)
-- Tailwindcss (with CDN, tho it's not supported in production)
+- Tailwindcss (with CDN, tho it's not recommended in production)
 ## Limitations
 
 The application can only export as a .webm file for the time being. You can try and solve this issue, by contributing.
